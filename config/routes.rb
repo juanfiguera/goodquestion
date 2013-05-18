@@ -1,5 +1,5 @@
 Goodquestion::Application.routes.draw do
-  root_to "questions#index"
+  root :to => 'questions#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
