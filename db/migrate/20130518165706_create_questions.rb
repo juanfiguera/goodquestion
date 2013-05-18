@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.references :user
       t.string :body
-      t.boolean :solved
+      t.boolean :solved, default: false
 
       t.timestamps
     end
