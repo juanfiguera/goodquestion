@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :auth, only: [:create]
   def index
   	@question = Question.new
   end
