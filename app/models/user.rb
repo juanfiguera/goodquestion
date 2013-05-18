@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :questions
+
   attr_accessible :password, :password_confirmation, :username
 
   has_secure_password
