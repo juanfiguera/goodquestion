@@ -1,7 +1,9 @@
 <% if  object.errors.any? %>
 	<ul id="form-errors">
 		<% object.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
+			<div class="alert alert-error">
+				<li><%= message %></li>
+			</div>
 		<% end %>
 	</ul>
 <% end %>

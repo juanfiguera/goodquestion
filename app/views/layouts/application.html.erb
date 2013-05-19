@@ -7,46 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<%= link_to 'GoodQuestion', root_path %>
-		</div><!-- end header -->
-		<div id="searchbar">
-			<%= render 'common/search_form' %>
-		</div><!-- end searchbar -->
-		<div id="nav">
-			<ul>
-				<li>
-					<%= link_to 'Home', root_path %>
-				</li>
-				<% if logged_in? %>
-					<li>
-						<%= link_to "Your Q's", your_questions_path %>
-					</li>
-					<li>
-						<%= link_to "Logout (#{current_user.username})", logout_path, method: 'delete' %>
-					</li>
-				<% else %>
-					<li>
-						<%= link_to 'Register', register_path %>
-					</li>
-					<li>
-						<%= link_to 'Login', login_path %>
-					</li>
-				<% end %>
-			</ul>
-		</div><!-- end nav -->
+	<header class = "navbar navbar-fixed-top" >
+		<div class="navbar-inner">
+			<div class="container">
+				<%= link_to 'GoodQuestion', root_path, id: 'logo' %>
+				<nav>
+					<ul class="nav pull-right">
+						<li>
+							<%= render 'common/search_form' %>
+						</li>
+						<li>
+							<%= link_to 'Home', root_path %>
+						</li>
+						<% if logged_in? %>
+							<li>
+								<%= link_to "Your Q's", your_questions_path %>
+							</li>
+							<li>
+								<%= link_to "Logout", logout_path, method: 'delete' %>
+							</li>
+						<% else %>
+							<li>
+								<%= link_to 'Register', register_path %>
+							</li>
+							<li>
+								<%= link_to 'Login', login_path %>
+							</li>
+						<% end %>
+					</ul>
+				</nav><!-- end nav -->
+			</div>
+		</div>
+	</header>
 
-		<div id="content">
-			<%= flash.each do |key, value| %>
-				<p id="message"><%= value %></p>
+	<div class="container">
+		<div class="main-content">
+			<div>
+			<% flash.each do |key, value| %>
+				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
 			<% end %>
+			</div>
 			<%= yield %>
-		</div><!-- end content -->
-
-		<div id="footer">
+		</div>
+		<footer>
 			&copy; GoodQuestion <%= Date.today.year %>
-		</div><!-- end footer -->
-	</div><!-- end container -->
+		</footer><!-- end footer -->
+	</div><!-- end content -->
 </body>
 </html>
