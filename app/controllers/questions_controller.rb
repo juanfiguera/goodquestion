@@ -37,6 +37,5 @@ class QuestionsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 end
