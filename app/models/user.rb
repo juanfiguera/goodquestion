@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
   										 format: { with: /^[a-z][a-z0-9]*$/, message: 'can only contain lower-case letters and numbers'}
   validates :password, length: { in: 4..8 }
   validates :password_confirmation, length: { in: 4..8 }
+
+  def your_questions(params)
+  	questions.paginate(page: params[:page], order: 'created_at DESC', DESC, per_page: 3)
+  end
+
 end
