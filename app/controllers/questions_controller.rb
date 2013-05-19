@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   	@question = current_user.questions.build(params[:question])
   	if @question.save
   		flash[:success] = "Your question has been posted!"
-  		redirect_to root_url
+  		redirect_to root_url 
   	else
       @questions = Question.unsolved(params)
   		render 'index'

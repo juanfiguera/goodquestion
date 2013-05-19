@@ -7,3 +7,15 @@
 		<p>Please login to ask or answer questions.</p>
 	<% end %>
 </div><!-- end task -->
+
+<div id="questions">
+	<h2>Unsolved Questions</h2>
+	<% if @questions.any? %>
+		<ul>
+			<%= render @questions %> <!-- no need for a for loop yay! -->
+		</ul>
+		<%= will_paginate %>
+	<% else %>
+		<p>No questions have been asked.</p>
+	<% end %>
+</div><!-- end questions -->
