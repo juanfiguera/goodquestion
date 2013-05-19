@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :auth, only: [:create]
+  before_filter :auth, only: [:create, :your_questions]
   def index
   	@question = Question.new
     @questions = Question.unsolved(params)
@@ -18,5 +18,9 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+  end
+
+  def your_questions
+    @questions = current_user.your_questions(params)
   end
 end
