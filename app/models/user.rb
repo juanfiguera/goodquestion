@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, length: { in: 4..8 }
 
   def your_questions(params)
-  	questions.paginate(page: params[:page], order: 'created_at DESC', DESC, per_page: 3)
+  	questions.paginate(page: params[:page], order: 'created_at DESC', per_page: 3)
   end
 
 end
