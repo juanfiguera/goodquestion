@@ -16,7 +16,7 @@ group :production do
 end
 
 # Twitter Bootstrap
-gem 'bootstrap-sass'
+gem "bootstrap-sass", "2.3.1.0"
 gem 'font-awesome-sass-rails'
 
 # Gems used only for assets and not required
