@@ -12,7 +12,7 @@ $ rails g controller Questions index
 replace
   get "questions/index"
 with
-  root :to => 'questions#indexesx'
+  root :to => 'questions#index'
 
 * remove 
 	public/index.html 
